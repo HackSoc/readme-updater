@@ -8,7 +8,8 @@ def cmd(cmd, stdout=subprocess.DEVNULL):
 
 url = "http://beta.hacksoc.org/servers/"
 hostname = platform.node().split(".")[0]
-outfile = "{}.html".format(hostname) # TODO override this with argv
+# outfile = "{}.html".format(hostname) # TODO override this with argv
+outfile = "index.html"
 
 @post('/update')
 def update():
