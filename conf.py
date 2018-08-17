@@ -30,11 +30,11 @@ if os.path.isfile(conf_filename):
     print("Moving {0} to {0}.old".format(conf_filename))
     os.rename(conf_filename, conf_filename + ".old")
 
-with open(unit_filename) as fd:
+with open(unit_filename, 'w+') as fd:
     fd.write(unit_template.replace("$hostname",hostname))
 print("Written {} - don't forget to `systemctl enable`!".format(unit_filename))
 
-with open(conf_filename, 'w') as fd:
+with open(conf_filename, 'w+') as fd:
     fd.write(conf_template.replace("$hostname",hostname))
 print("Written {}".format(conf_filename))
 conf_template.close()
