@@ -15,6 +15,9 @@ outfile = "index.html"
 
 @post('/update')
 def update():
-    cmd('wget "{0}{1}.html" -O {2}'.format(url,hostname,outfile), stdout=subprocess.STDOUT).wait()
+    command = 'wget "{0}{1}.html" -O {2}'.format(url,hostname,outfile)
+    print(command)
+    cmd(command, stdout=subprocess.STDOUT).wait()
+    return 'done'
 
 run(host="0.0.0.0", port=4000)

@@ -1,0 +1,15 @@
+[Unit]
+Description=Webhook for pulling README changes
+After=syslog.target
+
+[Service]
+Type=simple
+User=website
+Group=website
+WorkingDirectory=/srv/http/$hostname.hacksoc.org
+ExecStart=/srv/http/$hostname.hacksoc.org/hook.py
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
