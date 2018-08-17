@@ -8,11 +8,10 @@ def cmd(cmd, stdout=subprocess.DEVNULL):
 
 url = "https://www.hacksoc.org/servers/"
 hostname = platform.node().split(".")[0]
-# outfile = "{}.html".format(hostname) # TODO override this with argv
 outfile = "index.html"
 
 @post('/update')
 def update():
     cmd('wget "{0}{1}.html" -O {2}'.format(url,hostname,outfile), stdout=subprocess.STDOUT).wait()
 
-run(port=4000)
+run(host="0.0.0.0", port=4000)
