@@ -2,8 +2,8 @@
 
 set -e
 
-mkdir -p "/srv/http/"
+sudo mkdir -p "/srv/http/"
 cd /srv/http/
-git clone https://github.com/HackSoc/readme-updater $(hostname)
+sudo git clone https://github.com/HackSoc/readme-updater $(hostname)
 cd $(hostname)
 sudo python conf.py
