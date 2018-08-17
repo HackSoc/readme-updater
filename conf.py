@@ -37,7 +37,6 @@ print("Written {} - don't forget to `systemctl enable`!".format(unit_filename))
 with open(conf_filename, 'w+') as fd:
     fd.write(conf_template.replace("$hostname",hostname))
 print("Written {}".format(conf_filename))
-conf_template.close()
 
 print("""
 The files have now been copied, you need to:
