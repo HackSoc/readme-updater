@@ -7,7 +7,7 @@ env = os.environ
 cwd = os.path.dirname(os.path.realpath(__file__))
 
 def cmd(cmd, stdout=subprocess.DEVNULL):
-    return subprocess.Popen(cmd, shell=True, env=env, cwd=cwd stdout=stdout)
+    return subprocess.Popen(cmd, shell=True, env=env, cwd=cwd, stdout=stdout)
 
 url = "https://www.hacksoc.org/servers/"
 hostname = platform.node().split(".")[0]
