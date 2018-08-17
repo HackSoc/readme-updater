@@ -5,8 +5,9 @@ import platform, subprocess, os
 
 env = os.environ
 
+
 def cmd(cmd, stdout=subprocess.DEVNULL):
-    return subprocess.Popen(cmd, shell=True, env=env, cwd=cwd, stdout=stdout)
+    return subprocess.Popen(cmd, shell=True, env=env, stdout=stdout)
 
 url = "https://www.hacksoc.org/servers/"
 hostname = platform.node().split(".")[0]
