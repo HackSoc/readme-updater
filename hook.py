@@ -3,6 +3,8 @@
 from bottle import post, run
 import platform, subprocess, os
 
+env = os.environ
+
 def cmd(cmd, stdout=subprocess.DEVNULL):
     return subprocess.Popen(cmd, shell=True, env=env, cwd=cwd, stdout=stdout)
 
