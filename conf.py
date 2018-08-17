@@ -21,8 +21,8 @@ The tool will now copy nginx and service files to the correct locations
 hostname = platform.node().split(".")[0]
 pwd = os.path.dirname(os.path.realpath(__file__))
 
-conf_template = open("hostname.hacksoc.org.conf").readlines()
-unit_template = open("readmehook.service").readlines()
+conf_template = "\n".join(open("hostname.hacksoc.org.conf").readlines())
+unit_template = "\n".join(open("readmehook.service").readlines())
 conf_filename = "/etc/nginx/sites-available/{}.hacksoc.org.conf".format(hostname);
 unit_filename = "/etc/systemd/system/readmehook.service"
 
