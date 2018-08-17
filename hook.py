@@ -3,16 +3,23 @@
 from bottle import post, run
 import platform, subprocess, os
 
+env = os.environ
+cwd = os.path.dirname(os.path.realpath(__file__))
+
 def cmd(cmd, stdout=subprocess.DEVNULL):
-    return subprocess.Popen(cmd, shell=True, env=env, cwd=cwd, stdout=stdout)
+    return subprocess.Popen(cmd, shell=True, env=env, cwd=cwd, stdout=stdout, stderr=stdout, stdin=subprocess.DEVNULL)
 
 url = "https://www.hacksoc.org/servers/"
 hostname = platform.node().split(".")[0]
-# outfile = "{}.html".format(hostname) # TODO override this with argv
 outfile = "index.html"
 
 @post('/update')
 def update():
-    cmd('wget "{0}{1}.html" -O {2}'.format(url,hostname,outfile), stdout=subprocess.STDOUT).wait()
+    cmd("echo hi")
+    cmd("echo hi")
+    command = 'wget "{0}{1}.html" -O {2}'.format(url,hostname,outfile)
+    print(command)
+    cmd(command).wait()
+    return 'done'
 
-run(port=4000)
+run(host="0.0.0.0", port=4000)
